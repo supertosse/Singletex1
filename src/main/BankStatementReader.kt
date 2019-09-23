@@ -8,8 +8,13 @@ class BankStatementReader{
 
     companion object{
         val patternIsPost = "\\s\\d{4}\\s(\\d+\\.)*\\d+,\\d{2}\\s\\d{4}".toRegex()
-        fun read(file: File):ArrayList<Post>{
+        val patternIsBalanceIn = "Saldo fr".toRegex()
+        val patternIsBalanceOut = "Saldo i".toRegex()
+        private var patternAmount = "\\s(\\d+\\.)?\\d+,\\d{2}".toRegex()
+        fun read(file: File):BankStatement{
             val posts = ArrayList<Post>()
+            var balanceIn = -1f
+            var balanceOut = -1f
 
             try {
                 val doc = PDDocument.load(file)
@@ -19,7 +24,15 @@ class BankStatementReader{
                 val lines = text.lines()
 
                 for (line in lines){
-                    if(patternIsPost.containsMatchIn(line)){
+                    if(patternIsBalanceIn.containsMatchIn(line)){
+                        val bIn = patternAmount.find(line)
+                        if(bIn != null){ balanceIn = bIn.value.replace(".", "").replace(",", ".").toFloat() }
+                    }
+                    else if(patternIsBalanceOut.containsMatchIn(line)){
+                        val bOut = patternAmount.find(line)
+                        if(bOut != null){ balanceOut = bOut.value.replace(".", "").replace(",", ".").toFloat() }
+                    }
+                    else if(patternIsPost.containsMatchIn(line)){
                         posts.add(Post.createPost(line))
                     }
                 }
@@ -27,7 +40,7 @@ class BankStatementReader{
                 println(e)
             }
 
-            return posts
+            return BankStatement(posts, balanceIn, balanceOut)
         }
     }
 }
