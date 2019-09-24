@@ -18,7 +18,15 @@ class BankStatement(var posts: ArrayList<Post>, val balanceIn:Float, val balance
         return getIncomingPosts().map { it.amount }.reduce{acc, n -> acc + n}
     }
 
-    fun getContolSum():Float{
+    fun getControlSum():Float{
         return getSumIncomingPosts() - getSumOutgoingPosts() - balanceIn + balanceOut
+    }
+
+    fun isCorrectControlSum():Boolean{
+        return getControlSum() < 1 && getControlSum() > -1
+    }
+
+    fun getGetPostsOfType(type:Post.PostType):ArrayList<Post>{
+        return ArrayList(posts.filter { it.type == type })
     }
 }

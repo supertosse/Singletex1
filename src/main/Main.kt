@@ -11,5 +11,5 @@ fun main(args : Array<String>){
     println("Incoming: " + bankStatement.getSumIncomingPosts())
     println("BalanceOut: " + bankStatement.balanceOut)
     println("Balance in: " + bankStatement.balanceIn)
-    println("Control sum: " + bankStatement.getContolSum())
+    println("Control sum: " + bankStatement.getControlSum())
 }
