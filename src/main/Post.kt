@@ -2,15 +2,15 @@ package main
 
 class Post(val amount: Float, val description: String, val isIncoming: Boolean, val type:PostType){
 
-    enum class PostType {HOUSING, GROCERIES, TRANSPORTATION, CHARITY, OTHER}
+    enum class PostType {HOUSING, GROCERIES, TRANSPORTATION, CHARITY, OTHER, INCOMMING}
 
     override fun toString():String{
-       return "Amount: " + this.amount + " Description: " + this.description + " Incoming: " + this.isIncoming + " Type: " + this.type
+       return "Amount: " + this.amount + "\t\tDescription: " + this.description + " Incoming: " + this.isIncoming + " Type: " + this.type
     }
 
     companion object{
         private val patternSum = "\\s(\\d+\\.)*\\d+,\\d{2}\\s".toRegex()
-        private val patternIsIncoming = "Fra: ".toRegex()
+        private val patternIsIncoming = "(Fra: )".toRegex(RegexOption.IGNORE_CASE)
 
         fun createPost(post:String):Post{
             val resultSums = patternSum.find(post)
@@ -23,16 +23,19 @@ class Post(val amount: Float, val description: String, val isIncoming: Boolean, 
 
             val isIncoming = patternIsIncoming.containsMatchIn(post)
 
-            val type = getPostType(description)
+            var type = getPostType(description)
+            if(isIncoming){
+                type = PostType.INCOMMING
+            }
 
             return Post(amount, description, isIncoming, type)
         }
 
         private fun getPostType(description: String):PostType{
-            val patternGroceries = "(rema|kiwi|coop|meny|joker|)+".toRegex(RegexOption.IGNORE_CASE)
-            val patternTransportation = "(ruter|vy app|norway buss|nettbuss|nsb)+".toRegex(RegexOption.IGNORE_CASE)
+            val patternGroceries = "(rema|kiwi|coop|meny|joker)+".toRegex(RegexOption.IGNORE_CASE)
+            val patternTransportation = "(ruter|vy app|norway buss|nettbuss|nsb|flytoget)+".toRegex(RegexOption.IGNORE_CASE)
             val patternCharity = "(redd barna|hope for justice)+".toRegex(RegexOption.IGNORE_CASE)
-            val patternHousing = "(grebstad kjell|gjensidige)+".toRegex(RegexOption.IGNORE_CASE)
+            val patternHousing = "(grebstad kjell|gjensidige|helgesen johan|hafslund)+".toRegex(RegexOption.IGNORE_CASE)
 
             if(patternHousing.containsMatchIn(description)){
                 return PostType.HOUSING

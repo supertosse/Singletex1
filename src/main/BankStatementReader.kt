@@ -8,6 +8,7 @@ class BankStatementReader{
 
     companion object{
         val patternIsPost = "\\s\\d{4}\\s(\\d+\\.)*\\d+,\\d{2}\\s\\d{4}".toRegex()
+        val patternIsNotPost = "overfør\\w*side".toRegex()
         val patternIsBalanceIn = "Saldo fr".toRegex()
         val patternIsBalanceOut = "Saldo i".toRegex()
         private var patternAmount = "\\s(\\d+\\.)?\\d+,\\d{2}".toRegex()
@@ -24,6 +25,9 @@ class BankStatementReader{
                 val lines = text.lines()
 
                 for (line in lines){
+                    if(patternIsNotPost.containsMatchIn(line)){
+                       continue;
+                    }
                     if(patternIsBalanceIn.containsMatchIn(line)){
                         val bIn = patternAmount.find(line)
                         if(bIn != null){ balanceIn = bIn.value.replace(".", "").replace(",", ".").toFloat() }
