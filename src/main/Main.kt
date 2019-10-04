@@ -13,6 +13,5 @@ fun main(args : Array<String>){
     println("Balance in: " + bankStatement.balanceIn)
     println("Control sum: " + bankStatement.getControlSum())
 
-    println(bankStatement.toString(true))
     println(bankStatement)
 }
