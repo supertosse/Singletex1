@@ -11,6 +11,7 @@ class Post(val amount: Float, val description: String, val isIncoming: Boolean, 
     companion object{
         private val patternSum = "\\s(\\d+\\.)*\\d+,\\d{2}\\s".toRegex()
         private val patternIsIncoming = "(Fra: )".toRegex(RegexOption.IGNORE_CASE)
+        private val patternRFD = "(varer \\d\\d\\.\\d\\d )+".toRegex(RegexOption.IGNORE_CASE)
 
         fun createPost(post:String):Post{
             val resultSums = patternSum.find(post)
@@ -20,6 +21,9 @@ class Post(val amount: Float, val description: String, val isIncoming: Boolean, 
             var description = ""
             val removeFromDescription = BankStatementReader.patternIsPost.find(post)
             if(removeFromDescription != null) description = post.replace(removeFromDescription.value, "")
+
+            val removeFromDescription2 = patternRFD.find(description)
+            if(removeFromDescription2 != null) description = description.replace(removeFromDescription2.value, "")
 
             val isIncoming = patternIsIncoming.containsMatchIn(post)
 

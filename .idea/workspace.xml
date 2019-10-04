@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bde5c02-487e-4731-8ef3-4a5aa7293c1d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/BankStatement.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Singletex/main/BankStatementReader$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Singletex/main/BankStatementReader$Companion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Singletex/main/BankStatementReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Singletex/main/BankStatementReader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Singletex/main/MainKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Singletex/main/MainKt.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Singletex/main/Post$Companion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Singletex/main/Post$Companion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Singletex/main/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Singletex/main/Post.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/BankStatementReader.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/BankStatementReader.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/BankStatement.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/BankStatement.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Post.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Post.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,8 +41,10 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1569178243361" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/pdfbox-2.0.17.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tripletex" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -57,6 +55,7 @@
       <recent name="main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\git\Singletex\files" />
       <recent name="C:\Users\super\Documents\Singletex\libs" />
       <recent name="C:\Users\super\Documents\Singletex\files" />
       <recent name="C:\Users\super\OneDrive - NTNU\NTNU\Programmeringsspråk\Singletex\libs" />
@@ -130,8 +129,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1569144676095</updated>
+      <workItem from="1570024929483" duration="295000" />
+      <workItem from="1570082462223" duration="18318000" />
+      <workItem from="1570169336561" duration="1305000" />
+      <workItem from="1570172050762" duration="622000" />
+      <workItem from="1570173658790" duration="2214000" />
     </task>
+    <task id="LOCAL−00001" summary="add bank statement tostring">
+      <created>1570106659868</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1570106659868</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -145,6 +159,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add bank statement tostring" />
+    <option name="LAST_COMMIT_MESSAGE" value="add bank statement tostring" />
   </component>
   <component name="masterDetails">
     <states>

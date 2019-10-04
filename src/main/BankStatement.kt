@@ -42,11 +42,15 @@ class BankStatement(var posts: ArrayList<Post>, val balanceIn:Float, val balance
         var t1 = "\t"
         var t2 = "\t\t"
         var t3 = "\t\t\t"
+        var t4 = "\t\t\t\t"
+        var t5 = "\t\t\t\t\t"
         var t0 = "\t"
         if(excelMode){
             t1 = "\t"
             t2 = "\t"
             t3 = "\t"
+            t4 = "\t"
+            t5 = "\t"
             t0 = ""
         }
 
@@ -65,8 +69,8 @@ class BankStatement(var posts: ArrayList<Post>, val balanceIn:Float, val balance
 
         for(i in 0 until n){
            string += p(housing, i, t0) + t2 +
-                   p(groceries, i, t0) + t2 +
-                   p(transportation, i, t0) + t3 +
+                   p(groceries, i, t0) + t3 +
+                   p(transportation, i, t0) + t4 +
                    p(gg, i, t0)  + t2 + p2(gg, i, t0) + "\n"
         }
 
@@ -75,7 +79,7 @@ class BankStatement(var posts: ArrayList<Post>, val balanceIn:Float, val balance
 
     private fun p(list:ArrayList<Post>, i:Int, t1:String):String{
         if(list.size > i){
-            return list[i].amount.toString()
+            return list[i].amount.toInt().toString()
         }
         return t1
     }
